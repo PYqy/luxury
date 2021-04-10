@@ -8,8 +8,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-public class LuxuryApplication {
+public class LuxurySearchApplication {
     public static void main(String[] args) {
-        SpringApplication.run(LuxuryApplication.class);
+        SpringApplication.run(LuxurySearchApplication.class);
     }
 }
