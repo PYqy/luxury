@@ -14,6 +14,8 @@
         <module>luxury-item</module>
         <module>Luxury-common</module>
         <module>luxury-upload</module>
+        <module>luxury-search</module>
+        <module>luxury_search</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

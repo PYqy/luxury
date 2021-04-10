@@ -12,6 +12,7 @@ zuul:
   prefix: /api
   routes:
     item-service: /item/** #路由到商品的微服务
+    search-server: /search/** #路由到搜索微服务
   host:
           connect-timeout-millis: 3000
           socket-timeout-millis: 3000

@@ -4,7 +4,7 @@ spring:
   application:
     name: item-service
   datasource:
-     url: jdbc:mysql:///luxury
+     url: jdbc:mysql:///luxury?useUnicode=true&characterEncoding=utf8&useSSL=false
      username: root
      password: 123456
   cloud:

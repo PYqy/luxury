@@ -19,7 +19,7 @@
                 <!--商品分类-->
                 <v-cascader
                   url="/item/category/list"
-                  required
+
                   showAllLevels
                   v-model="goods.categories"
                   label="请选择商品分类"/>
@@ -284,7 +284,7 @@ export default {
             });
           // 根据分类查询规格参数
           this.$http
-            .get("/item/spec/params?cid=" + this.goods.categories[2].id)
+            .get("/item/spec/params")
             .then(({ data }) => {
               let specs = [];
               let template = [];

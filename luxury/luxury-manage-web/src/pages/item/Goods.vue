@@ -45,11 +45,15 @@
           <v-btn icon @click="editGoods(props.item)">
             <i class="el-icon-edit"/>
           </v-btn>
-          <v-btn icon>
+          <v-btn icon icon @click="deleteGoods(props.item.id)">
             <i class="el-icon-delete"/>
           </v-btn>
-          <v-btn icon v-if="props.item.saleable">下架</v-btn>
-          <v-btn icon v-else>上架</v-btn>
+          <v-btn icon icon @click="soldOutPut(props.item.id)">
+            {{props.item.saleable ? '下架' : '上架'}}
+          </v-btn>
+          <!--<v-btn icon icon v-else @click="soldOutPut(props.item.id)">-->
+            <!--下架-->
+          <!--</v-btn>-->
         </td>
       </template>
     </v-data-table>
@@ -110,10 +114,10 @@
         step: 1, // 子组件中的步骤线索引，默认为1
       }
     },
-    mounted() { // 渲染后执行
+  /*  mounted() { // 渲染后执行
       // 查询数据
       this.getDataFromServer();
-    },
+    },*/
     watch: {
       pagination: { // 监视pagination属性的变化
         deep: true, // deep为true，会监视pagination的属性及属性中的对象属性变化
@@ -144,7 +148,12 @@
           this.totalGoods = resp.data.total;
           // 完成赋值后，把加载状态赋值为false
           this.loading = false;
-        })
+        }).catch(() => {
+          this.goodsList = [];
+        this.totalGoods = 0;
+        // 完成赋值后，把加载状态赋值为false
+        this.loading = false;
+      })
       },
       addGoods() {
         // 修改标记
@@ -153,6 +162,29 @@
         this.show = true;
         // 把oldBrand变为null
         this.oldGoods = {};
+      },
+      soldOutPut(id) {
+
+          this.$http.post("/item/spu/out/" + id).then(() => {
+            this.$message.success("操作成功！");
+          this.getDataFromServer();
+        }).catch(() => {
+            this.$message.error("操作失败！");
+        });
+
+      },
+      deleteGoods(id){
+        this.$message.confirm("确认要删除商品吗？")
+          .then(() => {
+          this.$http.delete("/item/spu/remove/" +id)
+          .then(() => {
+          this.$message.success("删除成功")
+          this.getDataFromServer();
+      })
+
+      })
+
+
       },
       async editGoods(oldGoods) {
         // 发起请求，查询商品详情和skus

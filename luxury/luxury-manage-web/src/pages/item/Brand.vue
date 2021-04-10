@@ -29,7 +29,7 @@
           <v-btn icon @click="editBrand(props.item)">
             <i class="el-icon-edit"/>
           </v-btn>
-          <v-btn icon @click="deleteBrand(props.item)">
+          <v-btn icon @click="deleteBrand(props.item.id)">
             <i class="el-icon-delete"/>
           </v-btn>
         </td>
@@ -137,7 +137,16 @@
             this.oldBrand.categories = data;
           })
       },
-      deleteBrand(oldBrand) {
+      deleteBrand(id) {
+        this.$message.confirm("确认要删除品牌吗？")
+          .then(() => {
+          this.$http.delete("/item/brand/remove/" +id)
+          .then(() => {
+          this.$message.success("删除成功")
+        this.getDataFromServer();
+      })
+
+      })
 
       },
       closeWindow(){

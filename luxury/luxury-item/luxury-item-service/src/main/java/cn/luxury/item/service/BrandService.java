@@ -56,4 +56,35 @@ public class BrandService {
            this.brandMapper.insertCategoryAndBrand(cid,brand.getId());
        });
     }
+
+    public List<Brand> queryBrandByCid(Long cid) {
+        return this.brandMapper.queryBrandByCategoryId(cid);
+    }
+
+    public void removeBrandById(Long id) {
+        //删除品牌信息
+        this.brandMapper.deleteByPrimaryKey(id);
+
+        //维护中间表
+        this.brandMapper.deleteByBrandIdInCategoryBrand(id);
+
+    }
+
+    public Brand queryBrandById(Long id) {
+        return this.brandMapper.selectByPrimaryKey(id);
+    }
+
+    public void updateBrand(Brand brand, String cids) {
+
+        this.brandMapper.updateByPrimaryKey(brand);
+        this.brandMapper.deleteByBrandIdInCategoryBrand(brand.getId());
+        String[] split = cids.split(",");
+        if(split.length > 0) {
+            for (int i = 0; i < split.length; i++) {
+                this.brandMapper.insertCategoryAndBrand(Long.parseLong(split[i]),brand.getId());
+            }
+
+        }
+
+    }
 }

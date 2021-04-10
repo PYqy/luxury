@@ -15,8 +15,9 @@ public class LuxuryCorsConfiguration {
     public CorsFilter corsFilter() {
         //初始化cors配置对象
         CorsConfiguration corsConfiguration = new CorsConfiguration();
-        //允许这个域名跨域访问,如果携带cookir 不能写*,*：代表所有域名都可以跨域访问
+        //允许这个域名跨域访问,如果携带cookie 不能写*,*：代表所有域名都可以跨域访问
         corsConfiguration.addAllowedOrigin("http://manage.luxury.com");
+        corsConfiguration.addAllowedOrigin("http://www.luxury.com");
         //允许携带cookie
         corsConfiguration.setAllowCredentials(true);
         //代表所有的请求方法

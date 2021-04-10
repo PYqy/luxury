@@ -8,10 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -45,10 +42,56 @@ public class BrandController {
         return ResponseEntity.ok(result);
     }
 
+    /**
+     * 添加brand
+     * @param brand
+     * @param cids
+     * @return
+     */
     @PostMapping
     public ResponseEntity<Void> createBrand(Brand brand,@RequestParam("cids") List<Long> cids) {
         this.brandService.creatBrand(brand,cids);
         return ResponseEntity.status(HttpStatus.CREATED).build();
+
+    }
+
+    /**
+     * 根据cid查询brand
+     * @param cid
+     * @return
+     */
+    @GetMapping("cid/{cid}")
+    public ResponseEntity<List<Brand>> queryBrandByCid(@PathVariable("cid")Long cid){
+        List<Brand> result = this.brandService.queryBrandByCid(cid);
+        if(CollectionUtils.isEmpty(result)) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(result);
+
+    }
+
+    /**
+     * 删除
+     * @param id
+     * @return
+     */
+    @DeleteMapping("remove/{id}")
+    public ResponseEntity<Void> removeSpuBySpuId(@PathVariable("id") Long id) {
+        brandService.removeBrandById(id);
+        return ResponseEntity.status(HttpStatus.OK).build();
+
+    }
+
+    @GetMapping("{id}")
+    public ResponseEntity<Brand> queryBrandById(@PathVariable("id") Long id) {
+        Brand brand  = this.brandService.queryBrandById(id);
+        return ResponseEntity.ok(brand);
+
+    }
+    @PutMapping
+    public ResponseEntity<Void> updateBrandByBrandId(Brand brand,@RequestParam("cids") String cids) {
+        this.brandService.updateBrand(brand,cids);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).build();
 
     }
 
