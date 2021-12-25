@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var str1 = "http://www.baidu.cong?username=杨倩玉";
+        document.write(encodeURI(str1) + "<br>");
+        document.write(decodeURI(str1) + "<br>");
+        document.write(encodeURIComponent(str1) + "<br>");
+        document.write(decodeURIComponent(str1) + "<br>");
+
+        var str2 = "124asf";
+        document.write((parseInt(str2) + 1) + "<br>");
+
+        var str3 = "alert('abc')";
+        document.write(str3 + "<br>");
+        eval(str3);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

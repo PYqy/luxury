@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        for(let i = 0 ; i < 5 ; i ++) {
+            console.log(i)
+        }
+      //  console.log("我是循环外的"+i)
+
+        function fun1(a,b) {
+            b=b||2;
+            console.log(a/b);
+        }
+        let fun2 = (i,y)=>{
+            console.log(i+y)
+        }
+        fun1(10);
+        fun2(1,2)
+        const person = {
+            name:"zhangsan",
+            fun1:function () {
+                console.log(this.name+"i eatfun1")
+            },
+            fun2: (food) => console.log(person.name+"i eat fun2"),
+            fun5(food) {
+                console.log(this.name+"i eat fun3");
+            }
+
+        }
+        person.fun1();
+        person.fun2();
+        person.fun5();
+        const p = {
+            name:"lisi",
+            age:20
+        }
+
+        const fun3 = ({age}) => {console.log(age)}
+        fun3(p)
+
+    </script>
+</body>
+</html>

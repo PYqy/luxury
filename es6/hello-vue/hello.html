@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+    <div id="div1">
+        <input type="button" @click="random=Math.random()">{{random}}<br>
+        <span v-if="random > 0.75">0.75</span>
+        <span v-else-if="random > 0.65">0.65</span>
+        <span v-else-if="random > 0.55">0.55</span>
+        <span v-else>0.45</span>
+
+        <hr>
+        <input type="button" @click="flag=!flag"><br>
+        <span v-if="flag">v-if</span><br>
+        <span v-show="flag">v-show</span>
+        <hr>
+        <ul>
+            <li v-for="(key,val,index) in user">
+                {{index+1}}{{val}}:{{key}}
+
+            </li>
+        </ul>
+        <hr>
+        <ul>
+            <li v-if="user.name=='zhan3'" v-for="(user,index) in users"> {{index+1}} - {{user.name}}-{{user.age}}-{{user.fender}}</li>
+        </ul>
+        <br>
+        <input  type="checkbox" value="python" v-model="language">python<br>
+        <input  type="checkbox" value="java" v-model="language">java<br>
+        <input  type="checkbox" value="php" v-model="language">php<br>
+        您选择了:{{language.join(",")}}<hr>
+        <input type="text" v-model="num">
+        <input type="button" value="chick me!!" @click="incr">
+        <h1>hello{{num}}woshi<span v-html="name">hehe</span></h1>
+    </div>
+    <script src="node_modules/vue/dist/vue.js"></script>
+<script>
+    const a = new Vue({
+        el:"#div1",
+        data:{
+            name: "<span style='color: blueviolet'>lisi</span>",
+            num:100,
+            language:[],
+            users:[
+                {name:"zhan3",age:10,gender:"nv"},
+                {name:"zhan4",age:20,gender:"nan"},
+                {name:"zhan5",age:30,gender:"nv"},
+            ],
+            user:{name:"zhan3",age:10,gender:"nv"},
+            flag:false,
+            random:0
+        },
+        methods:{
+            incr() {
+               this.num++;
+            }
+        }
+    })
+</script>
+</body>
+</html>

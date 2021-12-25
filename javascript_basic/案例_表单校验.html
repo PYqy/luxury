@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <form action="#">
+        用户名<input type="text" name="username" id="username"><span id="s_username"></span><br>
+        密码<input type="text" name="password"><span id="s_password"></span><br>
+        邮箱<input type="text" name="email"><span id="s_email"></span><br>
+        手机<input type="text" name="phone"><span id="s_phone"></span><br>
+        <input type="submit" value="注册">
+    </form>
+</div>
+<script>
+
+
+    window.onload = function () {
+
+        document.getElementsByTagName("form")[0].onsubmit = function () {
+            return cherckUsername() && cherckPassword() && cherckEmail() && cherckPhone();
+        }
+
+    }
+    document.getElementsByName("username")[0].onblur = functcherckUsername;
+    document.getElementsByName("password")[0].onblur = functcherckPassword;
+    document.getElementsByName("email")[0].onblur = cherckEmail;
+    document.getElementsByName("phone")[0].onblur = cherckPhone;
+
+    function functcherckUsername() {
+        var username = document.getElementById("username").value;
+        var regex = /^\w{3,6}/;
+        if (regex.test(username)) {
+
+            var susername = document.getElementById("s_username");
+            susername.style.color = "green";
+            susername.border = "1px solid green";
+            susername.innerHTML = "正确";
+            return true;
+        } else {
+            var susername = document.getElementById("s_username");
+            susername.style.color = "red";
+            susername.border = "1px solid red";
+            susername.innerHTML = "错误";
+            return false;
+
+        }
+    }
+
+    function functcherckPassword() {
+        var password = document.getElementsByName("password")[0].value;
+        var regex = /^\w{3,6}/;
+        if (regex.test(password)) {
+
+            var spassword = document.getElementById("s_password");
+            spassword.style.color = "green";
+            spassword.border = "1px solid green";
+            spassword.innerHTML = "正确";
+            return true;
+        } else {
+            var spassword = document.getElementById("s_password");
+            spassword.style.color = "red";
+            spassword.border = "1px solid red";
+            spassword.innerHTML = "错误";
+            return false;
+
+        }
+    }
+
+    function cherckEmail() {
+        var email = document.getElementsByName("email")[0].value;
+
+        var regex; //buhui
+        if (regex.test(email)) {
+
+            var semail = document.getElementById("s_email");
+            semail.style.color = "green";
+            semail.border = "1px solid green";
+            semail.innerHTML = "正确";
+            return true;
+        } else {
+            var semail = document.getElementById("s_email");
+            semail.style.color = "red";
+            semail.border = "1px solid red";
+            semail.innerHTML = "错误";
+            return false;
+
+        }
+    }
+
+    function cherckPhone() {
+        var phone = document.getElementsByName("phone")[0].value;
+        var regex = /^1[3456789]\d{9}$/;
+        if (regex.test(phone)) {
+
+            var sphone = document.getElementById("s_phone");
+            sphone.style.color = "green";
+            sphone.border = "1px solid green";
+            sphone.innerHTML = "正确";
+            return true;
+        } else {
+            var sphone = document.getElementById("s_phone");
+            sphone.style.color = "red";
+            sphone.border = "1px solid red";
+            sphone.innerHTML = "错误";
+            return false;
+
+        }
+    }
+</script>
+</body>
+</html>

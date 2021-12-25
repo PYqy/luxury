@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            border: 1px solid;
+            width: 500px;
+
+        }
+
+        td, th {
+            text-align: center;
+            border: 1px solid;
+        }
+
+        div {
+
+            margin-top: 10px;
+            margin-left: 30%;
+        }
+
+        .out {
+            background-color: white;
+        }
+
+        .over {
+            background-color: plum;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <input type="text" id="nonum">
+    <input type="text" id="username">
+    <input type="text" id="gender">
+    <input type="button" id="subm" value="添加">
+</div>
+<div id="div2">
+    <table>
+        <caption>学生信息表</caption>
+        <tr>
+            <th><input type="checkbox" name="cb" id="first"></th>
+            <th>编号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>操作</th>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="cb"></td>
+            <td>1</td>
+            <td>令狐冲</td>
+            <td>男</td>
+            <td><a href="javascript:void(0);" onclick="deleteTr(this);">删除</a></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="cb"></td>
+            <td>2</td>
+            <td>ffff</td>
+            <td>男</td>
+            <td><a href="javascript:void(0);" onclick="deleteTr(this);">删除</a></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="cb"></td>
+            <td>3</td>
+            <td>fsgs</td>
+            <td>男</td>
+            <td><a href="javascript:void(0);" onclick="deleteTr(this);">删除</a></td>
+        </tr>
+    </table>
+    <input type="button" id="selectAll" value="全选">
+    <input type="button" id="noSelect" value="全不选">
+    <input type="button" id="oppositeSelect" value="反选">
+</div>
+
+<script>
+    window.onload = function () {
+        var table = document.getElementsByTagName("table")[0];
+        //添加元素
+        document.getElementById("subm").onclick = function () {
+            var nonum = document.getElementById("nonum").value;
+            var username = document.getElementById("username").value;
+            var gender = document.getElementById("gender").value;
+
+
+            table.innerHTML += " <td><input type=\"checkbox\" name=\"cb\"></td>\n" +
+                "            <td>" + nonum + "</td>\n" +
+                "            <td>" + username + "</td>\n" +
+                "            <td>" + gender + "</td>\n" +
+                "            <td><a href=\"javascript:void(0);\" onclick=\"deleteTr(this);\">删除</a></td>"
+        }
+        var cbs = document.getElementsByName("cb");
+        document.getElementById("selectAll").onclick = function () {
+            for (var i = 0; i < cbs.length; i++) {
+                cbs[i].checked = true;
+            }
+
+        }
+        document.getElementById("noSelect").onclick = function () {
+            for (var i = 0; i < cbs.length; i++) {
+                cbs[i].checked = false;
+            }
+
+        }
+        document.getElementById("oppositeSelect").onclick = function () {
+            for (var i = 0; i < cbs.length; i++) {
+                cbs[i].checked = !cbs[i].checked;
+            }
+
+        }
+
+        var trs = document.getElementsByTagName("tr");
+        for (var i = 0; i < trs.length; i++) {
+            trs[i].onmouseover = function () {
+                this.className = "over";
+            }
+            trs[i].onmouseout = function () {
+                this.className = "out";
+            }
+        }
+        document.getElementById("first").onclick = function () {
+            for (var i = 0; i < cbs.length; i++) {
+                cbs[i].checked = this.checked;
+
+            }
+        }
+
+
+    }
+
+    function deleteTr(dele) {
+        var table = dele.parentNode.parentNode.parentNode;
+        var tr = dele.parentNode.parentNode;
+        table.removeChild(tr);
+
+    }
+</script>
+
+
+</body>
+</html>

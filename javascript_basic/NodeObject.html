@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+
+            border: 1px solid black;
+        }
+
+        #div1 {
+            width: 200px;
+            height: 200px;
+        }
+
+        #div2 {
+            width: 100px;
+            height: 100px;
+        }
+
+        #div3 {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    div1
+    <div id="div2">div2</div>
+</div>
+<a href="javascript:void(0)" id="add_a">添加</a>
+<a href="javascript:void(0)" id="rem_a">删除</a>
+<script>
+    var div1 = document.getElementById("div1");
+    var div2 = document.getElementById("div2");
+    document.getElementById("add_a").onclick = function () {
+        var div3 = document.createElement("div");
+        div3.setAttribute("id", "div3");
+        div1.appendChild(div3);
+    }
+    document.getElementById("rem_a").onclick = function () {
+        div1.removeChild(document.getElementById("div2"));
+    }
+    window.alert(div2.parentNode);
+</script>
+</body>
+</html>

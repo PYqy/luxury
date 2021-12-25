@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="img/1.png" id="img" width="100%">
+<input type="button" id="back">
+<script>
+    var num = 1;
+
+    function fun() {
+        num++;
+        if (num > 3) {
+            num = 1;
+        }
+        document.getElementById("img").src = num + ".png";
+    }
+
+    setInterval(fun, 2000);
+    document.getElementById("back").onclick = function () {
+        history.back();
+    }
+</script>
+
+
+</body>
+</html>

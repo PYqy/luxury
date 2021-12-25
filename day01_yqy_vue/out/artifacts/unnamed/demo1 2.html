@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>快速入门</title>
+    <script src="js/vuejs-2.5.16.js"></script>
+</head>
+<body>
+<div id="app">
+    {{message}}<!--Vue的插值表达式，把data中定义的数据显示到此处-->
+    {{false ? "ok" : "No"}}
+    <!--{{number * 3.14}}-->
+
+    <!--
+    插值表达式 不支持变量赋值 与 if代码块
+    {{var num = 1 }}
+    {{if(true){}}
+    -->
+
+    <button v-on:click="btn1('Hello btn1')">btn1</button>
+    <button v-on:click="btn2()">btn2</button>
+    <input type="text" onkeydown="keyDownfun()">
+    <input type="text" v-on:keydown="fun3($event)">
+
+</div>
+</body>
+<script>
+    //view model
+    //创建Vue对象
+    new Vue({
+        el: "#app",//由vue接管id为app的区域
+        data: {
+            message: "Hello Vue! yqy",//注意：此处不要加分号
+            number: 111
+        },
+        methods: {
+            btn1: function (msg) {
+                this.message = msg;
+            },
+            btn2: function () {
+                this.message = "Htllo btn2";
+            },
+            fun3: function (event) {
+
+                var keyCode = event.keyCode;
+                if (keyCode < 48 || keyCode > 57) {
+                    //不让键盘起作用
+                    event.preventDefault();
+                }
+            }
+        }
+    });
+
+
+    function keyDownfun() {
+        //event 对象和window与document对象一样 不用定义
+        var keyCode = event.keyCode;
+        if (keyCode < 48 || keyCode > 57) {
+            //不让键盘起作用
+            event.preventDefault();
+        }
+
+    }
+
+</script>
+</html>

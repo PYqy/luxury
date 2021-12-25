@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var fun1 = new Function("a", "b", "alert(a+b)");
+    //fun1(1,2);
+    // alert(fun1.length);
+    function fun2(a, b) {
+        alert(a + b);
+    }
+
+    // alert(fun2.length);
+    //fun2(2,3);
+    var fun3 = function (a, b) {
+        alert(a + b);
+    }
+    //fun3(4,5);
+    //alert(fun3.length);
+    fun2 = function () {
+        // alert(a-b);
+        // alert(a);
+        // alert(b);
+        var sum = 0;
+        for (var i = 0; i < arguments.length; i++) {
+            sum += arguments[i];
+        }
+        return sum;
+    }
+    //fun2(3,4);
+    //fun2(3);
+    alert(fun2(3, 2, 5));
+
+
+</script>
+
+</body>
+</html>

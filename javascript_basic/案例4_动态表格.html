@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<p>
+    <input type="text" id="nonum">
+    <input type="text" id="username">
+    <input type="text" id="gender">
+    <input type="button" id="sumb">
+</p>
+<table border="1" align="center" id="table">
+    <caption>学生信息表</caption>
+    <tr>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>操作</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>令狐冲</td>
+        <td>男</td>
+        <td><a href="javascript:void(0)" id="remove_a" onclick="delTr(this)">删除</a></td>
+    </tr>
+
+</table>
+<script>
+    var table = document.getElementById("table")
+    document.getElementById("sumb").onclick = function () {
+        var nonum = document.getElementById("nonum").value;
+        var username = document.getElementById("username").value;
+        var gender = document.getElementById("gender").value;
+
+        // var tr = document.createElement("tr");
+        // var td1 = document.createElement("td");
+        // td1.appendChild(document. createTextNode(nonum));
+        // var td2 = document.createElement("td");
+        // td2.appendChild(document. createTextNode(nonum));
+        // var td3 = document.createElement("td");
+        // td3.appendChild(document. createTextNode(nonum));
+        // var td4 = document.createElement("td");
+        // var a = document.createElement("a");
+        // a.setAttribute("href","javascript:void(0)");
+        // a.setAttribute("onclick","delTr(this)");
+        // a.appendChild(document.createTextNode("删除"));
+
+
+        table.innerHTML += "<tr>\n" +
+            "            <td>" + nonum + "</td>\n" +
+            "            <td>" + username + "</td>\n" +
+            "            <td>" + gender + "</td>\n" +
+            "            <td><a href=\"javascript:void(0)\" id=\"remove_a\" onclick=\"delTr(this)\">删除</a></td>\n" +
+            "        </tr>"
+
+
+        // tr.appendChild(td1);
+        // tr.appendChild(td2);
+        // tr.appendChild(td3);
+        // tr.appendChild(td4);
+        // table.appendChild(tr);
+
+    }
+
+    function delTr(obj) {
+        var table = obj.parentNode.parentNode.parentNode;
+        var tr = obj.parentNode.parentNode;
+        table.removeChild(tr);
+
+    }
+</script>
+
+
+</body>
+</html>

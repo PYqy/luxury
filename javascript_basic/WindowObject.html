@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" id="openBtn">
+<input type="button" id="closeBtn">
+<script>
+    // window.alert("Hello window");
+    // alert("Hi Window") ;
+    // if(confirm("您是否要删除")){
+    //     alert("true")
+    // }else{
+    //     alert("false")
+    // }
+    // var str = prompt("请输入您要输出的内容");
+    // alert(str)
+
+    //打开关闭
+    // var openBtn = document.getElementById("openBtn");
+    // var closeBtn = document.getElementById("closeBtn");
+    // var newWindow;
+    // openBtn.onclick = function(){
+    //     newWindow = open();
+    //    // open("https://www.baidu.com");
+    //    // open("GlobalDemo.html");
+    //
+    // };
+    // closeBtn.onclick=function () {
+    //     newWindow.close()
+    // }
+
+
+    //定时器
+    var id1 = setTimeout("alert('Boom!')", 2000);
+    // setTimeout("alert('Boom2!')",2000);
+    // setTimeout("fun()",2000);
+    // setTimeout(fun2,2000);
+    clearTimeout(id1);
+    var id2 = setInterval("alert('interval')", 3000);
+    var id3 = setInterval(fun2, 3000);
+    clearInterval(id2);
+
+    function fun() {
+        alert("func11111");
+    }
+
+    function fun2() {
+        alert("func2222222221");
+    }
+</script>
+
+</body>
+</html>

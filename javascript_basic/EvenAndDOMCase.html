@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img id="img1" src="img/1.png">
+<script>
+    var img1 = document.getElementById("img1");
+    var flag;
+    flag = false;
+
+    img1.onclick = function () {
+        if (flag) {
+            img1.src = "img/1111.png";
+            flag = false;
+        } else {
+            img1.src = "img/2222.png";
+            flag = true;
+        }
+    }
+</script>
+
+</body>
+</html>

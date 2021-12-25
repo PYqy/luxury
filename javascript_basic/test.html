@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="js/js.js"></script>
+
+</head>
+<body>
+<script>
+    alert("JS内部文件");
+    var num = 1;
+    var num2 = 1.4;
+    var num3 = NaN;
+    document.write(num + "------" + typeof(num) + "<br>");
+    document.write(num2 + "------" + typeof(num2) + "<br>");
+    document.write(num3 + "------" + typeof(num3) + "<br>");
+
+    var str1 = "abc";
+    var str2 = 'test';
+    document.write(str1 + "------" + typeof(str2) + "<br>");
+    document.write(str2 + "------" + typeof(str1) + "<br>");
+
+    var flag = true;
+    document.write(flag + "------" + typeof(flag) + "<br>");
+
+    var n1 = null;
+    var n2 = undefined;
+    var n3;
+    document.write(n1 + "------" + typeof(n1) + "<br>");
+    document.write(n2 + "------" + typeof(n2) + "<br>");
+    document.write(n3 + "------" + typeof(n3) + "<br>");
+</script>
+
+</body>
+</html>

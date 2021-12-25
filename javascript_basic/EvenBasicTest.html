@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="img/1.png" onclick="alert('我弹出来了')">
+<img src="img/1.png" onclick="fun();">
+<img src="img/1.png" id="test">
+
+<script>
+    function fun() {
+        alert('我又弹出来了')
+    }
+
+    function fun2() {
+        alert("我又又弹出来了");
+    }
+
+    document.getElementById("test").onclick = fun2;
+</script>
+
+</body>
+</html>

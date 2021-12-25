@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var reg1 = new RegExp("\\w{3,6}");
+        var reg2 = /^\w{3,6}\d$/;
+        var reg3 = /\w{3,6}/;
+
+        var str1 = "zha";
+        var str2 = "sgfd3";
+        var str3 = "efd";
+        document.write(reg1.test(str1) + "<br>");
+        document.write(reg2.test(str2) + "<br>");
+        document.write(reg3.test(str3) + "<br>");
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a>dianwo</a>
+<input type="button" id="set">
+<input type="button" id="remove">
+<script>
+    var a = document.getElementsByTagName("a")[0];
+    document.getElementById("set").onclick = function () {
+        a.setAttribute("href", "99table.html");
+    }
+    document.getElementById("remove").onclick = function () {
+        a.removeAttribute("href")
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" id="btn">
+<input type="button" id="forward">
+
+<input type="button" id="go">
+<a href="案例：轮播图.html">09</a>
+<script>
+    document.getElementById("btn").onclick = function () {
+        alert(history.length);
+    }
+    document.getElementById("forward").onclick = function () {
+        history.forward();
+    }
+
+    document.getElementById("go").onclick = function () {
+        history.go(1);
+    }
+
+</script>
+
+</body>
+</html>
